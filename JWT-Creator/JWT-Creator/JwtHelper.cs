@@ -82,7 +82,7 @@ namespace JWT_Creator
             return jwtHandler.WriteToken(token);
         }
 
-        public static bool ValidateJwtTokenWithAsymmetricKey_RSA256(string token, RsaSecurityKey key, string issuer, string audience)
+        public static bool ValidateJwtTokenWithAsymmetricKey_RSA256(string token, RsaSecurityKey key, string issuer, string audience, out string message)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
 
@@ -97,10 +97,13 @@ namespace JWT_Creator
                     IssuerSigningKey = key
                 }, out SecurityToken validatedToken);
 
+                message = $"valid Token: [ {token} ]";
+
                 return (validatedToken != null);
 
             } catch(Exception ex)
             {
+                message = ex.Message;
                 return false;
             }
         }

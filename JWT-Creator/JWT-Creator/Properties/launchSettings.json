@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "JWT-Creator": {
+      "commandName": "Project",
+      "commandLineArgs": "--claims \"[{ \"\"ClaimType\"\":\"\"TEST\"\", \"\"ClaimValue\"\":\"\"TESTING\"\" }]\""
+    }
+  }
+}
