@@ -30,8 +30,9 @@ namespace JWT_Creator
                 PrintHelp();
                 return;
             }
+
+            CreateAndValidateJWT(settings);
             
-            Console.WriteLine($"Ready!");
             Console.ReadLine();
         }
 
@@ -79,7 +80,11 @@ namespace JWT_Creator
             
         }
 
-
+        /// <summary>
+        /// Applies any overrides from CLI arguments.
+        /// </summary>
+        /// <param name="settings">Settings object loaded from appsettings.json</param>
+        /// <param name="arguments">Object contianing arguments read from the commandline</param>
         private static void UpdateSettings(Settings settings, CliArguments arguments)
         {
             if (arguments == null)
