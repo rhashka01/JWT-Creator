@@ -9,4 +9,4 @@
 *.nuget.targets
 project.lock.json
 project.assets.json
-
+#.pfx
